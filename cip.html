@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Cip</title>
+	<link rel="stylesheet" href="themes/flat.css" />
+	<link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.css" />
+	<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
+	<link rel = "stylesheet" type = "text/css" href = "style.css">
+</head>
+<body>
+	
+	<div class = "page" data-role="page" id="home">
+		<div data-role="header">
+			<div data-role="navbar">
+				<ul class = "navbar">
+					<li><a href="#search">Search</a></li>
+					<li><a href="#home">Home</a></li>
+					<li><a href="#profile">Profile</a></li>
+				</ul>
+			</div>
+		</div>
+		<div data-role="main" class="ui-content">
+			<div class = "header">
+				<div class="title">Cip</div>
+				<div class="button blue" id = "newCrush">Add a new crush</div>
+			</div>
+
+			<div class="content">
+
+				<div data-role = "collapsible" class = "toggleCrushList">
+					<h1>Hide/Show current crushes</h1>
+					<ul>
+						<div class = "crushList">
+							<div><p>Brodie</p><span id = "removeCrush" class = "removeCrush">-</span></div>
+							<div><p>Brodie</p><span id = "removeCrush" class = "removeCrush">-</span></div>
+							<div><p>Brodie's firend (to get to brodie)</p><span id = "removeCrush" class = "removeCrush">-</span></div>
+						</div>
+					</ul>
+				</div>
+
+				<h2>Matches: </h2>
+				<div class = "huge">1</div>
+				<div id = "findOut" class="button gold findOut toggleRevealCrush">Find out who!</div>
+			</div>
+			
+			<div class = "popUp none" id = "popUp">
+				<div class = "popUpQuery" id = "popUpQuery">asdasd?</div>
+				<div class = "queryOptions">
+					<div id = "yes" class = "y button">Yes</div>
+					<div id = "no" class = "n button">No</div>
+				</div>
+			</div>
+			
+			<div class = "revealCrush none" id = "revealCrush">
+				<div class = "name">Brodie Reciprocates!</div>
+				<div class = "button toggleRevealCrush">X</div>
+			</div>
+			
+		</div>
+	</div>
+	
+	<div class = "page" data-role="page" id="search">
+		<div data-role="header">
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#search">Search</a></li>
+					<li><a href="#home">Home</a></li>
+					<li><a href="#profile">Profile</a></li>
+				</ul>
+			</div>
+		</div>
+		<div data-role="main" class="ui-content">
+			
+			<div class="app-content search">
+				
+				<div class="searchHeader">
+					<img class = "searchLogo" src = "images/searchLogo.png">
+					<div class = "searchTitle">Search For Your Crush Here: </div>
+					<textarea class = "searchArea" type = "search" placeholder = "Search for your crush" id = search></textarea>
+				</div>
+
+				<div class = "searchResults">
+
+					<div class = "users" id = "users">
+
+						<div class = "user">
+							<h5 class = "userName">Someone</h5>
+							<p class = "bio">Stuff about someoneStuff about someoneStuff about someoneStuff about someoneStuff about someoneStuff about someone</p>
+						</div>
+
+						<div class = "user">
+							<h5 class = "userName">Someone else</h3>
+							<p class = "bio">Someone elseSomeone elseSomeone elseSomeone elseSomeone elseSomeone elseSomeone elseSomeone elseSomeone else</p>
+						</div>
+
+						<div class = "user">
+							<h5 class = "userName">Another someone</h3>
+							<p class = "bio">Another someoneAnother someoneAnother someoneAnother someoneAnother someoneAnother someoneAnother someone</p>
+						</div>
+
+					</div>
+
+					<div class="button blue lookingFor">Couldn't find who you were looking for?</div>
+
+				</div>
+		  
+     		 </div>
+			
+		</div>
+	</div>
+	
+	<div class = "page" data-role="page" id="profile">
+		<div data-role="header">
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#search">Search</a></li>
+					<li><a href="#home">Home</a></li>
+					<li><a href="#profile">Profile</a></li>
+				</ul>
+			</div>
+		</div>
+		<div data-role="main" class="ui-content">
+			
+			<div class = "profileHeader">
+				<div class = "name">Brodie Dye</div>
+				<div class = "img">
+					<img class = "editSymbol" src = "images/editSymbol.png">
+				</div>
+			</div>
+
+			<div class = "profileInfo">
+				<div class = "app-section">
+					<p class = "profileHeaders">School/workplace: </p>
+					<p class="answer">Western springs College</p>
+				</div>
+				<div class = "app-section">
+					<p class = "profileHeaders">Age </p>
+					<p class="answer">16</p>
+				</div>
+				<div class = "app-section">
+					<p class = "profileHeaders">Gender: </p>
+					<p class="answer">Male</p>
+				</div>
+				<div class = "app-section">
+					<p class = "profileHeaders">Sexuality </p>
+					<p class="answer">Straight</p>
+				</div>
+
+			</div>
+			
+			<div class = "button red signUp"><a href = "#logIn">Sign Up here: </a></div>
+			
+		</div>	
+	</div>
+	
+	<div class = "page" data-role="page" id="logIn">
+		<div data-role="header">
+			<div data-role="navbar">
+				<ul>
+					<li><a href = "#profile" data-icon = "arrow-l">Back</a></li>
+				</ul>
+			</div>
+		</div>
+		<div data-role="main" class="ui-content logInContent">
+			
+			<div class = "form">
+
+				<h1 class = "logInHere">Log In Here: </h1>
+
+				<form>
+					<label for = "name">Name: </label>
+					<input type = "text" id = "name">
+					<label for = "age">Age: </label>
+					<input type = "text" id = "age">
+					<label for = "school">School/workplace: </label>
+					<input type = "text" id = "school">
+					<label for="male">Male</label>
+					  <input type="radio" name="gender" id="male" value="male"><br>
+					  <label for="female">Female</label>
+					  <input type="radio" name="gender" id="female" value="female"><br>
+					  <label for="other">Other</label>
+					  <input type="radio" name="gender" id="other" value="other"><br><br>
+					<label for = "sexuality">Sexuality: </label>
+					<input type = "text" id = "sexuality">
+					<label for = "bio">Bio: </label>
+					<input type = "text" id = "bio">
+					<input id = "submit" type = "submit" class = "submit" value = "Submit">
+				</form>
+
+			</div>
+			
+		</div>
+	</div>
+	
+	<script src = "jquery.js"></script>
+	<script src = cipCode.js></script>
+	
+</body>
+</html>
