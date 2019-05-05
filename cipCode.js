@@ -38,7 +38,28 @@ $(document).ready(function() {
 	// find out who
 	
 	$(".toggleRevealCrush").on("click", function(){
-		revealCrush.toggleClass("none");
+		$("#revealCrush").toggleClass("none");
+	});
+	
+	
+	
+	// SIGNUP PAGE
+	
+	// collect details
+	
+	$('#myForm').submit(function() {
+		
+		var $inputs = $('#details input');
+
+		var values = {};
+		$inputs.each(function() {
+			values[this.name] = $(this).val();
+		});
+		
+		for(i=0; i<values.length; i++) {
+			console.log(values.i);
+		}
+
 	});
 	
 });

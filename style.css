@@ -75,6 +75,18 @@
 	font-size: 30px;
 }
 
+.x {
+	right: 0px;
+	position: absolute;
+	top: 0px;
+	width: 10px;
+	height: 10px;
+}
+
+x:hover {
+	background-color: red;
+}
+
 y n {
 	max-width: 40%;
 }
