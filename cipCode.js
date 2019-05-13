@@ -47,18 +47,64 @@ $(document).ready(function() {
 	
 	// collect details
 	
-	$('#myForm').submit(function() {
+	$('#submit').on("click", function(e) {
+		
+		e.preventDefault();
 		
 		var $inputs = $('#details input');
-
-		var values = {};
+		var details = [];
+		var $alert = $("#alert");
+		var $errorList = $("#errorList");
+		var empty = false;
+		
+		
 		$inputs.each(function() {
-			values[this.name] = $(this).val();
+			
+			var errorMsg = $(this).attr("name") + " field was empty";
+			var $firstError = $errorList.children().first();
+			
+			if ($(this).val() === "") { //if input is empty
+				
+				empty = true;
+				
+				if ($alert.hasClass("none")) {
+					$alert.toggleClass("none");
+				}
+				if ($(this).data("optional") == "y") {
+					
+					return false;
+					
+				} else {
+					
+					if ($firstError.text() !== "") {
+						$errorList.append("<li>" + errorMsg + "</li>");
+					} else {
+						$firstError.text(errorMsg);
+					}					
+				}
+				
+			} else {
+				$input = $(this);
+				function push(input) {
+					details.push(input);
+				}
+				
+				if ($input.hasClass("radio")) {
+					if ($input.attr("checked")) {
+						push($input);
+					}
+				} else {
+					
+				}
+			}
+			
 		});
 		
 		for(i=0; i<values.length; i++) {
 			console.log(values.i);
 		}
+		
+		return false;
 
 	});
 	

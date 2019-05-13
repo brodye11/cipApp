@@ -168,6 +168,12 @@
 			<div class = "form">
 
 				<h1 class = "logInHere">Log In Here: </h1>
+				
+				<div class = "alert none" id = "alert">
+					<ul id = "errorList" class = "errorList">
+						<li></li>
+					</ul>
+				</div>
 
 				<form id = "details">
 					<label for = "name">Name: </label>
@@ -183,9 +189,9 @@
 					  <label for="other">Other</label>
 					  <input name = "other" type="radio" name="gender" id="other" value="other"><br><br>
 					<label for = "sexuality">Sexuality: </label>
-					<input name = "" type = "text" id = "sexuality">
+					<input data-optional = "y" name = "sexuality" type = "text" id = "sexuality">
 					<label for = "bio">Bio: </label>
-					<input name = "" type = "text" id = "bio">
+					<input data-optional = "y" name = "bio" type = "text" id = "bio">
 					<input id = "submit" type = "submit" class = "submit" value = "Submit">
 				</form>
 

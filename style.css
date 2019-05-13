@@ -360,6 +360,15 @@ h2 {
 	text-align: center;
 }
 
+.alert {
+	padding: 20px;
+	background-color: red;
+}
+
+.errorList {
+	color: white;
+}
+
 .form {
 	width: 80vw;
 	background-color: white;
