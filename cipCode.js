@@ -43,7 +43,7 @@ $(document).ready(function() {
 	
 	
 	
-	// SIGNUP PAGE
+	// SiGNUP PAGE
 	
 	// collect details
 	
@@ -55,17 +55,29 @@ $(document).ready(function() {
 		var details = [];
 		var $alert = $("#alert");
 		var $errorList = $("#errorList");
+		var missingMsg = $errorList.children();
 		var empty = false;
+		
+		function push(input) {
+			details.push(input);
+		}
 		
 		
 		$inputs.each(function() {
 			
-			var errorMsg = $(this).attr("name") + " field was empty";
+			var errorMsg = $(this).attr("name") + " field is required";
 			var $firstError = $errorList.children().first();
 			
 			if ($(this).val() === "") { //if input is empty
 				
 				empty = true;
+				
+				missingMsg.eq(1).text("test");
+				
+				for (i=0; i<missingMsg.length; i++) {
+					missingMsg.filter("nth-child(" + i+1 + ")").text = "";
+					console.log(i);
+				}
 				
 				if ($alert.hasClass("none")) {
 					$alert.toggleClass("none");
@@ -80,29 +92,23 @@ $(document).ready(function() {
 						$errorList.append("<li>" + errorMsg + "</li>");
 					} else {
 						$firstError.text(errorMsg);
-					}					
+					}			
 				}
 				
 			} else {
-				$input = $(this);
-				function push(input) {
-					details.push(input);
-				}
+				var input = $(this);
+				var inputVal = input.val();
 				
-				if ($input.hasClass("radio")) {
-					if ($input.attr("checked")) {
-						push($input);
+				if (input.hasClass("radio") || input.hasClass("submit")) {
+					if (input.prop("checked")) {
+						push(inputVal);
 					}
 				} else {
-					
+					push(inputVal);
 				}
 			}
 			
 		});
-		
-		for(i=0; i<values.length; i++) {
-			console.log(values.i);
-		}
 		
 		return false;
 

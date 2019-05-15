@@ -130,32 +130,31 @@
 				</div>
 			</div>
 
-			<div class = "profileInfo">
-				<div class = "app-section">
+			<div class = "app-section">
+				<div class = "something">
 					<p class = "profileHeaders">School/workplace: </p>
 					<p class="answer">Western springs College</p>
 				</div>
-				<div class = "app-section">
+				<div class = "something">
 					<p class = "profileHeaders">Age </p>
 					<p class="answer">16</p>
 				</div>
-				<div class = "app-section">
+				<div class = "something">
 					<p class = "profileHeaders">Gender: </p>
 					<p class="answer">Male</p>
 				</div>
-				<div class = "app-section">
+				<div class = "something">
 					<p class = "profileHeaders">Sexuality </p>
 					<p class="answer">Straight</p>
 				</div>
-
 			</div>
 			
-			<div class = "button red signUp"><a href = "#logIn">Sign Up here: </a></div>
+			<div class = "button red signUp"><a class = "buttonLink" href = "#login">Sign Up here: </a></div>
 			
 		</div>	
 	</div>
 	
-	<div class = "page" data-role="page" id="logIn">
+	<div class = "page" data-role="page" id="login">
 		<div data-role="header">
 			<div data-role="navbar">
 				<ul>
@@ -163,11 +162,11 @@
 				</ul>
 			</div>
 		</div>
-		<div data-role="main" class="ui-content logInContent">
+		<div data-role="main" class="ui-content loginContent">
 			
 			<div class = "form">
 
-				<h1 class = "logInHere">Log In Here: </h1>
+				<h1 class = "loginHere">Log in Here: </h1>
 				
 				<div class = "alert none" id = "alert">
 					<ul id = "errorList" class = "errorList">
@@ -183,14 +182,14 @@
 					<label for = "school">School/workplace: </label>
 					<input name = "school" type = "text" id = "school">
 					<label for="male">Male</label>
-					  <input name = "male" type="radio" name="gender" id="male" value="male"><br>
+					  <input name = "male" type="radio" name="gender" id="male" value="male" class = "radio"><br>
 					  <label for="female">Female</label>
-					  <input name = "female" type="radio" name="gender" id="female" value="female"><br>
+					  <input name = "female" type="radio" name="gender" id="female" value="female" class = "radio"><br>
 					  <label for="other">Other</label>
-					  <input name = "other" type="radio" name="gender" id="other" value="other"><br><br>
-					<label for = "sexuality">Sexuality: </label>
+					  <input name = "other" type="radio" name="gender" id="other" value="other" class = "radio"><br><br>
+					<label for = "sexuality">Sexuality (optional): </label>
 					<input data-optional = "y" name = "sexuality" type = "text" id = "sexuality">
-					<label for = "bio">Bio: </label>
+					<label for = "bio">Bio (optional): </label>
 					<input data-optional = "y" name = "bio" type = "text" id = "bio">
 					<input id = "submit" type = "submit" class = "submit" value = "Submit">
 				</form>

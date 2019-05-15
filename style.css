@@ -27,6 +27,12 @@
 
 .button>a {
 	display: block;
+	text-decoration-style: none;
+	color: white;
+}
+
+.button>a {
+	display: block;
 	text-decoration: none;
 	color: white;
 	font-weight: normal;
@@ -326,21 +332,26 @@ h2 {
 	height: 60px;
 }
 
-.profileInfo {
-	width: 80vw;
-	background-color: rgba(255, 255, 255, 0.5);
-}
-
 .app-section {
 	max-width: 100%;
+	margin: 0px auto;
+	background-color: rgba(255, 255, 255, 0.5);
+	width: 80vw;
+	display: flex;
+	flex-flow: column;
+	align-items: center;
+}
+
+.something {
+	width: 200px;
+}
+
+.something>* {
+	padding: 5px;
 }
 
 .profileHeaders {
     font-weight: bold;
-}
-
-.profileHeaders, .answer {
-    padding: 5px;
 }
 
 .signUp {
@@ -363,6 +374,7 @@ h2 {
 .alert {
 	padding: 20px;
 	background-color: red;
+	margin-bottom: 20px;
 }
 
 .errorList {
