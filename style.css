@@ -360,6 +360,14 @@ h2 {
 
 /* Sign up */
 
+.logInHere {
+	padding: 10px 0px;
+}
+
+.logInContent {
+	background-color: white;
+}
+
 .logInContent {
 	background: white;
 }

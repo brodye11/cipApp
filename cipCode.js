@@ -62,22 +62,19 @@ $(document).ready(function() {
 			details.push(input);
 		}
 		
+		$errorList.each(function() {
+			$(this).text("");
+		});
+		
 		
 		$inputs.each(function() {
 			
 			var errorMsg = $(this).attr("name") + " field is required";
-			var $firstError = $errorList.children().first();
+			var $firstError = missingMsg.first();
 			
-			if ($(this).val() === "") { //if input is empty
+			if ($(this).val() == "") { //if input is empty
 				
 				empty = true;
-				
-				missingMsg.eq(1).text("test");
-				
-				for (i=0; i<missingMsg.length; i++) {
-					missingMsg.filter("nth-child(" + i+1 + ")").text = "";
-					console.log(i);
-				}
 				
 				if ($alert.hasClass("none")) {
 					$alert.toggleClass("none");
@@ -88,7 +85,7 @@ $(document).ready(function() {
 					
 				} else {
 					
-					if ($firstError.text() !== "") {
+					if ($firstError.val() !== "") {
 						$errorList.append("<li>" + errorMsg + "</li>");
 					} else {
 						$firstError.text(errorMsg);
@@ -109,6 +106,14 @@ $(document).ready(function() {
 			}
 			
 		});
+		
+		if (empty === false) {
+			
+			for (i=0;i<details.length;i++) {
+				
+			}
+			
+		}
 		
 		return false;
 
