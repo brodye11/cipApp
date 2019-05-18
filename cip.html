@@ -35,7 +35,7 @@
 						<div class = "crushList">
 							<div><p>Brodie</p><span id = "removeCrush" class = "removeCrush">-</span></div>
 							<div><p>Brodie</p><span id = "removeCrush" class = "removeCrush">-</span></div>
-							<div><p>Brodie's firend (to get to brodie)</p><span id = "removeCrush" class = "removeCrush"></span></div>
+							<div><p>Brodie's firend (to get to brodie)</p><span id = "removeCrush" class = "removeCrush">-</span></div>
 						</div>
 					</ul>
 				</div>
@@ -124,26 +124,26 @@
 		<div data-role="main" class="ui-content">
 			
 			<div class = "profileHeader">
-				<div class = "name">Brodie Dye</div>
+				<div class = "name" id = "brodie">Brodie Dye</div>
 				<div class = "img">
-					<img class = "editSymbol" src = "images/editSymbol.png">
+					<img class = "editSymbol" src = "images/editSymbol.png" id = "edit">
 				</div>
 			</div>
 
-			<div class = "app-section">
-				<div class = "something">
-					<p class = "profileHeaders">School/workplace: </p>
-					<p class="answer">Western springs College</p>
-				</div>
-				<div class = "something">
+			<div class = "app-section" id = "detailsSectionHead">
+				<div class = "something" id = "detailDiv">
 					<p class = "profileHeaders">Age </p>
 					<p class="answer">16</p>
 				</div>
-				<div class = "something">
+				<div class = "something" id = "detailDiv">
+					<p class = "profileHeaders">School/workplace: </p>
+					<p class="answer">Western springs College</p>
+				</div>
+				<div class = "something" id = "detailDiv">
 					<p class = "profileHeaders">Gender: </p>
 					<p class="answer">Male</p>
 				</div>
-				<div class = "something">
+				<div class = "something" id = "detailDiv">
 					<p class = "profileHeaders">Sexuality </p>
 					<p class="answer">Straight</p>
 				</div>
@@ -179,7 +179,10 @@
 					<input name = "name" type = "text" id = "name">
 					
 					<label for = "age">Age: </label>
-					<input name = "age" type = "text" id = "age">
+					<input name = "age" type = "number" id = "age">
+					
+					<label for = "email">Email: </label>
+					<input name = "email" type = "email" id = "email">
 					
 					<label for = "school">School/workplace: </label>
 					<input name = "school" type = "text" id = "school">

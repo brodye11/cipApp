@@ -44,18 +44,33 @@ $(document).ready(function() {
 	
 	
 	// SiGNUP PAGE
+
 	
-	// collect details
+	
+	// Collect Details
+	
+	var $inputs = $('#details input');
+	var $alert = $("#alert");
+	var $errorList = $("#errorList");
+	var missingMsg = $errorList.children();
+	
+	var name = "name";
+	var age = "age";
+	var email = "email";
+	var school = "school";
+	var gender = "gender";
+	var sexuality = "sexuality";
+	var bio = "bio";
+	
+	var detailCats = [name, age, email, school, gender, sexuality, bio];
+	
+	// When Submit Is Clicked
 	
 	$('#submit').on("click", function(e) {
 		
 		e.preventDefault();
 		
-		var $inputs = $('#details input');
 		var details = [];
-		var $alert = $("#alert");
-		var $errorList = $("#errorList");
-		var missingMsg = $errorList.children();
 		var empty = false;
 		
 		function push(input) {
@@ -68,6 +83,11 @@ $(document).ready(function() {
 		
 		
 		$inputs.each(function() {
+			
+			
+			// errorMsg
+			
+			
 			
 			var errorMsg = $(this).attr("name") + " field is required";
 			var $firstError = missingMsg.first();
@@ -107,9 +127,32 @@ $(document).ready(function() {
 			
 		});
 		
+		
+		// update details
+		
+		function updateProfile() {
+			var $detailDiv = $("#detailDiv");
+			for (i=0; i<detailDiv.length; i++) {
+				if (i === 0) {
+					$("#brodie").text(detailCats[i]);
+				} else {
+					$detailDiv.eq(0).children().last().text(detailCats[i-1]);
+				}
+			}
+		}
+		
+		// store details
+		
 		if (empty === false) {
 			
 			for (i=0;i<details.length;i++) {
+				
+				if (details[i] == "") {
+					
+					localStorage.setItem(detailCats[i], details[i]);
+					detailCats[i] = details[i];	
+					
+				}
 				
 			}
 			
