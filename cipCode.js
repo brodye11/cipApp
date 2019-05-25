@@ -57,12 +57,13 @@ $(document).ready(function() {
 	var name = "name";
 	var age = "age";
 	var email = "email";
+	var password = "password";
 	var school = "school";
 	var gender = "gender";
 	var sexuality = "sexuality";
 	var bio = "bio";
 	
-	var detailCats = [name, age, email, school, gender, sexuality, bio];
+	var detailCats = [name, age, email, password, school, gender, sexuality, bio];
 	
 	// When Submit Is Clicked
 	
@@ -86,7 +87,7 @@ $(document).ready(function() {
 			
 			
 			// errorMsg
-			
+		
 			
 			
 			var errorMsg = $(this).attr("name") + " field is required";
@@ -94,22 +95,19 @@ $(document).ready(function() {
 			
 			if ($(this).val() == "") { //if input is empty
 				
-				empty = true;
-				
 				if ($alert.hasClass("none")) {
 					$alert.toggleClass("none");
 				}
-				if ($(this).data("optional") == "y") {
+				
+				if (!$(this).data("optional") == "y") {
 					
-					return false;
-					
-				} else {
+					empty = true;
 					
 					if ($firstError.val() !== "") {
 						$errorList.append("<li>" + errorMsg + "</li>");
 					} else {
 						$firstError.text(errorMsg);
-					}			
+					}
 				}
 				
 			} else {
@@ -127,11 +125,68 @@ $(document).ready(function() {
 			
 		});
 		
+		// store details
+		
+		if (empty === false) {
+			
+			localStorage.clear();
+			localStorage.setItem("storedDetails", JSON.stringify(details));
+			var storedDetails = JSON.parse(localStorage.getItem("storedDetails"));
+			
+			var answers = $("#detailDiv>#answers");
+			
+			for (i=0;i<answers.length;i++) {
+				if (i == 1) {
+					$("#brodie").text(storedDetails[i]);
+				} else {
+					answers.text(storedDetails[i]);
+				}
+			}
+			
+		}
+		
+		return false;
+
+	});
+	
+	// When Edit is Clicked ----------------------------------------------------------
+	
+	$("#edit").on("click", function() {
 		
 		// update details
 		
-		function updateProfile() {
+		$inputs = $('#currentDetails input');
+		
+		var details = [];
+		var empty = false;
+		
+		function push(input) {
+			details.push(input);
+		}
+		
+		
+		$inputs.each(function() {
+			
+			var input = $(this);
+			var inputVal = input.val();
+
+			if (input.hasClass("radio") || input.hasClass("submit")) {
+				if (input.prop("checked")) {
+					push(inputVal);
+				}
+			} else {
+				push(inputVal);
+			}
+		});
+		
+		
+		// update details
+		
+		$("#submit").on("click", function(e) {
+			e.preventDefault();
+		
 			var $detailDiv = $("#detailDiv");
+			console.log($detailDiv);
 			for (i=0; i<detailDiv.length; i++) {
 				if (i === 0) {
 					$("#brodie").text(detailCats[i]);
@@ -139,18 +194,16 @@ $(document).ready(function() {
 					$detailDiv.eq(0).children().last().text(detailCats[i-1]);
 				}
 			}
-		}
 		
 		// store details
 		
-		if (empty === false) {
+		if (empty === false) { // ------------------------------------ replace old values
 			
 			for (i=0;i<details.length;i++) {
 				
 				if (details[i] == "") {
 					
-					localStorage.setItem(detailCats[i], details[i]);
-					detailCats[i] = details[i];	
+					
 					
 				}
 				
@@ -159,7 +212,8 @@ $(document).ready(function() {
 		}
 		
 		return false;
-
+		
+		});
 	});
 	
 });

@@ -330,6 +330,7 @@ h2 {
 .editSymbol {
 	width: 60px;
 	height: 60px;
+	display: block;
 }
 
 .app-section {
