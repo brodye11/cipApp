@@ -99,11 +99,13 @@ $(document).ready(function() {
 					$alert.toggleClass("none");
 				}
 				
-				if (!$(this).data("optional") == "y") {
+				if ($(this).data("optional") == "y") {
+					return false;
+				} else {
 					
 					empty = true;
 					
-					if ($firstError.val() !== "") {
+					if ($firstError.val() != "") {
 						$errorList.append("<li>" + errorMsg + "</li>");
 					} else {
 						$firstError.text(errorMsg);
@@ -133,13 +135,39 @@ $(document).ready(function() {
 			localStorage.setItem("storedDetails", JSON.stringify(details));
 			var storedDetails = JSON.parse(localStorage.getItem("storedDetails"));
 			
-			var answers = $("#detailDiv>#answers");
+			var answers = $("#detailDiv #answer");
 			
 			for (i=0;i<answers.length;i++) {
-				if (i == 1) {
-					$("#brodie").text(storedDetails[i]);
+				var token = i;
+				if (token == 0) {
+					if (answers.eq(token).data("detail") == "name") {
+						$("#brodie").text(storedDetails[i]);
+					}
 				} else {
-					answers.text(storedDetails[i]);
+					answers.each(function() {
+						
+						if (detailCats[token] == "password") {
+							return false;
+						} else {
+							
+							console.log($(this).data("detail"));
+							console.log(token);
+							console.log(detailCats[token]);
+							var test = detailCats[token] == $(this).data("detail");
+							console.log(test);
+							
+							var done = false;
+							if ($(this).data("detail") == detailCats[token]) {
+								if ($(this).text() != storedDetails[token]) {
+									$(this).text(storedDetails[token]);
+									done = true;
+								}
+								return false;
+							} /* else if (done == false) {
+								$(this).text("fail");
+							}*/
+						}
+					});
 				}
 			}
 			
@@ -151,7 +179,7 @@ $(document).ready(function() {
 	
 	// When Edit is Clicked ----------------------------------------------------------
 	
-	$("#edit").on("click", function() {
+	/*$("#edit").on("click", function() {
 		
 		// update details
 		
@@ -214,6 +242,6 @@ $(document).ready(function() {
 		return false;
 		
 		});
-	});
+	});*/
 	
 });

@@ -125,35 +125,35 @@
 			
 			<div class = "profileHeader">
 				<div class = "name" id = "brodie">Brodie Dye</div>
-				<div class = "img">
-					<img class = "editSymbol" src = "images/editSymbol.png" id = "edit">
-				</div>
+				<a class = "img editSymbole" id = "edit">
+					<img class = "editSymbol" src = "images/editSymbol.png">
+				</a>
 			</div>
 
 			<div class = "app-section" id = "detailsSectionHead">
 				<div class = "something" id = "detailDiv">
 					<p class = "profileHeaders">Age </p>
-					<p class="answer">16</p>
+					<p class="answer" id = "answer" data-detail = "age">16</p>
 				</div>
 				<div class = "something" id = "detailDiv">
 					<p class = "profileHeaders">Email </p>
-					<p class="answer">a@a.com</p>
+					<p class="answer" id = "answer" data-detail = "email">a@a.com</p>
 				</div>
 				<div class = "something" id = "detailDiv">
 					<p class = "profileHeaders">School/workplace: </p>
-					<p class="answer" id = "answer">Western springs College</p>
+					<p class="answer" id = "answer" data-detail = "school">Western springs College</p>
 				</div>
 				<div class = "something" id = "detailDiv">
 					<p class = "profileHeaders">Gender: </p>
-					<p class="answer">Male</p>
+					<p class="answer" id = "answer" data-detail = "gender">Male</p>
 				</div>
 				<div class = "something" id = "detailDiv">
 					<p class = "profileHeaders">Sexuality </p>
-					<p class="answer">Straight</p>
+					<p class="answer" id = "answer" data-detail = "sexuality">Straight</p>
 				</div>
 				<div class = "something" id = "detailDiv">
 					<p class = "profileHeaders">Bio </p>
-					<p class="answer">Big man</p>
+					<p class="answer" id = "answer" data-detail = "bio">Big man</p>
 				</div>
 			</div>
 			
@@ -184,19 +184,19 @@
 
 				<form id = "details">
 					<label for = "name">Name: </label>
-					<input name = "name" type = "text" id = "name">
+					<input data-detail = "name" name = "name" type = "text" id = "name">
 					
 					<label for = "age">Age: </label>
-					<input name = "age" type = "number" id = "age">
+					<input data-detail = "age" name = "age" type = "number" id = "age">
 					
 					<label for = "email">Email: </label>
-					<input name = "email" type = "email" id = "email">
+					<input data-detail = "email" name = "email" type = "email" id = "email">
 					
 					<label for = "password">Password: </label>
-					<input name = "pasword" type = "password" id = "password">
+					<input data-detail = "password" name = "pasword" type = "password" id = "password">
 					
 					<label for = "school">School/workplace: </label>
-					<input name = "school" type = "text" id = "school">
+					<input data-detail = "school" name = "school" type = "text" id = "school">
 					
 					<label for = "gender">Gender</label>
 					<label for="male">Male</label>
@@ -207,10 +207,10 @@
 					<input name = "other" type="radio" name="gender" id="other" value="other" class = "radio"><br><br>
 					
 					<label for = "sexuality">Sexuality (optional): </label>
-					<input data-optional = "y" name = "sexuality" type = "text" id = "sexuality">
+					<input data-detail = "sexuality" data-optional = "y" name = "sexuality" type = "text" id = "sexuality">
 					
 					<label for = "bio">Bio (optional): </label>
-					<input data-optional = "y" name = "bio" type = "text" id = "bio">
+					<input data-detail = "bio" data-optional = "y" name = "bio" type = "text" id = "bio">
 					
 					<input id = "submit" type = "submit" class = "submit" value = "Submit">
 				</form>
