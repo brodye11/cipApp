@@ -1,4 +1,50 @@
-$(document).ready(function() {	
+$(document).ready(function() {
+	
+	var storedDetails = JSON.parse(localStorage.getItem("storedDetails"));
+	
+	
+	// ON LOAD
+	
+	function loadDetails() {
+		
+		var answers = $("#detailDiv #answer");
+		var detailCats = [name, age, email, password, school, gender, sexuality, bio];
+		
+		for (i=0;i<answers.length;i++) {
+			var token = i;
+			if (token == 0) {
+				if (answers.eq(token).data("detail") == "name") {
+					$("#brodie").text(storedDetails[i]);
+				}
+			} else {
+				answers.each(function() {
+
+					if (detailCats[token] == "password") {
+						return false;
+					} else {
+
+						var done = false;
+						if ($(this).data("detail") == detailCats[token]) {
+							if ($(this).text() != storedDetails[token]) {
+								$(this).text(storedDetails[token]);
+								done = true;
+							}
+							return false;
+						}
+					}
+				});
+			}
+		}
+		
+		console.log(storedDetails);
+		
+	}
+	
+	loadDetails();
+	
+	if (storedDetails) {
+		loadDetails();
+	}
 
 	// HOME PAGE
 
@@ -63,11 +109,11 @@ $(document).ready(function() {
 	var sexuality = "sexuality";
 	var bio = "bio";
 	
-	var detailCats = [name, age, email, password, school, gender, sexuality, bio];
-	
 	// When Submit Is Clicked
 	
 	$('#submit').on("click", function(e) {
+		
+		var storedDetails;
 		
 		e.preventDefault();
 		
@@ -131,11 +177,12 @@ $(document).ready(function() {
 		
 		if (empty === false) {
 			
+			var answers = $("#detailDiv #answer");
+			var detailCats = [name, age, email, password, school, gender, sexuality, bio];
+			
 			localStorage.clear();
 			localStorage.setItem("storedDetails", JSON.stringify(details));
-			var storedDetails = JSON.parse(localStorage.getItem("storedDetails"));
-			
-			var answers = $("#detailDiv #answer");
+			storedDetails = JSON.parse(localStorage.getItem("storedDetails"));
 			
 			for (i=0;i<answers.length;i++) {
 				var token = i;
@@ -150,12 +197,6 @@ $(document).ready(function() {
 							return false;
 						} else {
 							
-							console.log($(this).data("detail"));
-							console.log(token);
-							console.log(detailCats[token]);
-							var test = detailCats[token] == $(this).data("detail");
-							console.log(test);
-							
 							var done = false;
 							if ($(this).data("detail") == detailCats[token]) {
 								if ($(this).text() != storedDetails[token]) {
@@ -163,9 +204,7 @@ $(document).ready(function() {
 									done = true;
 								}
 								return false;
-							} /* else if (done == false) {
-								$(this).text("fail");
-							}*/
+							}
 						}
 					});
 				}
