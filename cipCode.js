@@ -5,11 +5,23 @@ $(document).ready(function() {
 	
 	// ON LOAD
 	
-	function loadDetails() {
+	$("#profilePage").ready(function() {
 		
+		var name = "name";
+		var age = "age";
+		var email = "email";
+		var password = "password";
+		var school = "school";
+		var gender = "gender";
+		var sexuality = "sexuality";
+		var bio = "bio";
+
 		var answers = $("#detailDiv #answer");
 		var detailCats = [name, age, email, password, school, gender, sexuality, bio];
 		
+		storedDetails = JSON.parse(localStorage.getItem("storedDetails"));
+		console.log(storedDetails);
+
 		for (i=0;i<answers.length;i++) {
 			var token = i;
 			if (token == 0) {
@@ -22,12 +34,9 @@ $(document).ready(function() {
 					if (detailCats[token] == "password") {
 						return false;
 					} else {
-
-						var done = false;
 						if ($(this).data("detail") == detailCats[token]) {
 							if ($(this).text() != storedDetails[token]) {
 								$(this).text(storedDetails[token]);
-								done = true;
 							}
 							return false;
 						}
@@ -36,15 +45,11 @@ $(document).ready(function() {
 			}
 		}
 		
-		console.log(storedDetails);
-		
-	}
+	});
 	
-	loadDetails();
-	
-	if (storedDetails) {
+	/*if (storedDetails) {
 		loadDetails();
-	}
+	}*/
 
 	// HOME PAGE
 
@@ -99,15 +104,6 @@ $(document).ready(function() {
 	var $alert = $("#alert");
 	var $errorList = $("#errorList");
 	var missingMsg = $errorList.children();
-	
-	var name = "name";
-	var age = "age";
-	var email = "email";
-	var password = "password";
-	var school = "school";
-	var gender = "gender";
-	var sexuality = "sexuality";
-	var bio = "bio";
 	
 	// When Submit Is Clicked
 	
@@ -177,6 +173,15 @@ $(document).ready(function() {
 		
 		if (empty === false) {
 			
+			var name = "name";
+			var age = "age";
+			var email = "email";
+			var password = "password";
+			var school = "school";
+			var gender = "gender";
+			var sexuality = "sexuality";
+			var bio = "bio";
+			
 			var answers = $("#detailDiv #answer");
 			var detailCats = [name, age, email, password, school, gender, sexuality, bio];
 			
@@ -196,12 +201,9 @@ $(document).ready(function() {
 						if (detailCats[token] == "password") {
 							return false;
 						} else {
-							
-							var done = false;
 							if ($(this).data("detail") == detailCats[token]) {
 								if ($(this).text() != storedDetails[token]) {
 									$(this).text(storedDetails[token]);
-									done = true;
 								}
 								return false;
 							}
