@@ -2,25 +2,24 @@ $(document).ready(function() {
 	
 	var storedDetails = JSON.parse(localStorage.getItem("storedDetails"));
 	
-	
+	var name = "name";
+    var age = "age";
+    var email = "email";
+    var password = "password";
+    var school = "school";
+    var gender = "gender";
+    var sexuality = "sexuality";
+    var bio = "bio";
+
+    var detailCats = [name, age, email, password, school, gender, sexuality, bio];
+    
 	// ON LOAD
 	
 	$("#profilePage").ready(function() {
-		
-		var name = "name";
-		var age = "age";
-		var email = "email";
-		var password = "password";
-		var school = "school";
-		var gender = "gender";
-		var sexuality = "sexuality";
-		var bio = "bio";
 
 		var answers = $("#detailDiv #answer");
-		var detailCats = [name, age, email, password, school, gender, sexuality, bio];
 		
 		storedDetails = JSON.parse(localStorage.getItem("storedDetails"));
-		console.log(storedDetails);
 
 		for (i=0;i<answers.length;i++) {
 			var token = i;
@@ -224,8 +223,17 @@ $(document).ready(function() {
         
         for (i=0;i<$inputEdit.length; i++) {
             
-            $inputEdit[i].val(storedDetails[i]);
+            var thiss = $inputEdit.eq(i);
             
+            $inputEdit.each(function() {
+                
+                
+                
+            });
+            
+            if (thiss.data("detail") == detailCats[i]) {
+                thiss.val(storedDetails[i]);   
+            }
         }
         
     });
