@@ -58,17 +58,21 @@
 .popUpQuery {
 	color: white;
 	font-size: 20px;
-	padding: 10px;
+	padding: 30px;
 	text-align: center;
 }
 
 .popUp, .revealCrush {
 	width: 80%;
-	height: 150px;
-	background-color: #828282;
+	min-height: 150px;
+	background-color: #ccb174;
 	position: absolute;
-	top: 200px;
+	top: 150px;
 	left: 10%;
+    box-shadow: 10px 10px 5px grey;
+    border-style: groove;
+    border-color: black;
+    border-width: 2px;
 }
 
 .queryOptions {
@@ -93,8 +97,9 @@ x:hover {
 	background-color: red;
 }
 
-y n {
-	max-width: 40%;
+y, n {
+	width: 30%;
+    color: black;
 }
 
 /* Home */
@@ -327,9 +332,7 @@ h2 {
 	padding: 60px 50px 60px 50px;
 }
 
-.editSymbol {
-	width: 60px;
-	height: 60px;
+editLink .editSymbol {
 	display: block;
 }
 

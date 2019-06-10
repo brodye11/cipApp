@@ -46,7 +46,7 @@
 			</div>
 			
 			<div class = "popUp none" id = "popUp">
-				<div class = "popUpQuery" id = "popUpQuery">asdasd?</div>
+				<div class = "popUpQuery" id = "popUpQuery"></div>
 				<div class = "queryOptions">
 					<div id = "yes" class = "y button">Yes</div>
 					<div id = "no" class = "n button">No</div>
@@ -125,9 +125,9 @@
 			
 			<div class = "profileHeader">
 				<div class = "name" id = "brodie">Brodie Dye</div>
-				<a class = "img editSymbole" id = "edit">
-					<img class = "editSymbol" src = "images/editSymbol.png">
-				</a>
+                <a class = "editLink" href = "#editDetails">
+                    <img width = "100px" height = "100px" class = "editSymbol" src = "images/editSymbol.png">
+                </a>
 			</div>
 
 			<div class = "app-section" id = "detailsSectionHead">
@@ -212,7 +212,7 @@
 					<label for = "bio">Bio (optional): </label>
 					<input data-detail = "bio" data-optional = "y" name = "bio" type = "text" id = "bio">
 					
-					<input id = "submit" type = "submit" class = "submit" value = "Submit">
+					<input id = "submitSignUp" type = "submit" class = "submit" value = "Submit">
 				</form>
 
 			</div>
@@ -241,13 +241,13 @@
 
 				<form id = "currentDetails">
 					<label for = "name">Name: </label>
-					<input name = "name" type = "text" id = "name">
+					<input data-detail = "name" name = "name" type = "text" id = "name">
 					
 					<label for = "age">Age: </label>
-					<input name = "age" type = "number" id = "age">
+					<input data-detail = "age" name = "age" type = "number" id = "age">
 					
 					<label for = "school">School/workplace: </label>
-					<input name = "school" type = "text" id = "school">
+					<input data-detail = "school" name = "school" type = "text" id = "school">
 					
 					<label for = "gender">Gender</label>
 					<label for="male">Male</label>
@@ -258,12 +258,12 @@
 					<input name = "other" type="radio" name="gender" id="other" value="other" class = "radio"><br><br>
 					
 					<label for = "sexuality">Sexuality (optional): </label>
-					<input data-optional = "y" name = "sexuality" type = "text" id = "sexuality">
+					<input data-detail = "sexuality" data-optional = "y" name = "sexuality" type = "text" id = "sexuality">
 					
 					<label for = "bio">Bio (optional): </label>
-					<input data-optional = "y" name = "bio" type = "text" id = "bio">
+					<input data-detail = "bio" data-optional = "y" name = "bio" type = "text" id = "bio">
 					
-					<input id = "submit" type = "submit" class = "submit" value = "Submit">
+					<input id = "submitEdit" type = "submit" class = "submit" value = "Submit">
 				</form>
 
 			</div>

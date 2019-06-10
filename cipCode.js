@@ -25,9 +25,7 @@ $(document).ready(function() {
 		for (i=0;i<answers.length;i++) {
 			var token = i;
 			if (token == 0) {
-				if (answers.eq(token).data("detail") == "name") {
-					$("#brodie").text(storedDetails[i]);
-				}
+				$("#brodie").text(storedDetails[i]);
 			} else {
 				answers.each(function() {
 
@@ -100,25 +98,27 @@ $(document).ready(function() {
 	
 	// Collect Details
 	
-	var $inputs = $('#details input');
 	var $alert = $("#alert");
 	var $errorList = $("#errorList");
 	var missingMsg = $errorList.children();
 	
 	// When Submit Is Clicked
 	
-	$('#submit').on("click", function(e) {
+	$('#submitSignUp').on("click", function(e) {
+        
+        var $inputs = $('#details input');
 		
 		var storedDetails;
+        
+        var details = [];
+    
+        function push(input) {
+            details.push(input);
+        }
 		
 		e.preventDefault();
-		
-		var details = [];
+        
 		var empty = false;
-		
-		function push(input) {
-			details.push(input);
-		}
 		
 		$errorList.each(function() {
 			$(this).text("");
@@ -192,9 +192,7 @@ $(document).ready(function() {
 			for (i=0;i<answers.length;i++) {
 				var token = i;
 				if (token == 0) {
-					if (answers.eq(token).data("detail") == "name") {
-						$("#brodie").text(storedDetails[i]);
-					}
+				    $("#brodie").text(storedDetails[i]);
 				} else {
 					answers.each(function() {
 						
@@ -217,72 +215,33 @@ $(document).ready(function() {
 		return false;
 
 	});
+    
+    // When edit loads
+    
+    $("#editDetails").ready(function() {
+        
+        var $inputEdit = $('#currentDetails input');
+        
+        for (i=0;i<$inputEdit.length; i++) {
+            
+            $inputEdit[i].val(storedDetails[i]);
+            
+        }
+        
+    });
 	
 	// When Edit is Clicked ----------------------------------------------------------
 	
-	/*$("#edit").on("click", function() {
-		
-		// update details
-		
-		$inputs = $('#currentDetails input');
-		
-		var details = [];
-		var empty = false;
-		
-		function push(input) {
-			details.push(input);
-		}
-		
-		
-		$inputs.each(function() {
-			
-			var input = $(this);
-			var inputVal = input.val();
-
-			if (input.hasClass("radio") || input.hasClass("submit")) {
-				if (input.prop("checked")) {
-					push(inputVal);
-				}
-			} else {
-				push(inputVal);
-			}
-		});
-		
-		
-		// update details
-		
-		$("#submit").on("click", function(e) {
-			e.preventDefault();
-		
-			var $detailDiv = $("#detailDiv");
-			console.log($detailDiv);
-			for (i=0; i<detailDiv.length; i++) {
-				if (i === 0) {
-					$("#brodie").text(detailCats[i]);
-				} else {
-					$detailDiv.eq(0).children().last().text(detailCats[i-1]);
-				}
-			}
-		
-		// store details
-		
-		if (empty === false) { // ------------------------------------ replace old values
-			
-			for (i=0;i<details.length;i++) {
-				
-				if (details[i] == "") {
-					
-					
-					
-				}
-				
-			}
-			
-		}
-		
-		return false;
-		
-		});
-	});*/
+	$("#submitEdit").on("click", function(e) {
+        
+        e.preventDefault();
+        
+        var details = [];
+    
+        function push(input) {
+            details.push(input);
+        }
+        
+    });
 	
 });
