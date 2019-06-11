@@ -242,13 +242,38 @@ $(document).ready(function() {
 	
 	$("#submitEdit").on("click", function(e) {
         
-        e.preventDefault();
+        // loop through each input, test whether its val() is the same as current storedDetail for that cat, if it isn't then change the storedDetail for that cat and loadDetails.
         
+        e.preventDefault();
         var details = [];
     
         function push(input) {
             details.push(input);
         }
+        
+        var $inputEdit = $('#currentDetails input');
+        
+        for(i=0;i<$inputEdit.length;i++) {
+            
+            var input = $inputEdit.eq(i);
+            var inputVal = $inputEdit.eq(i).val();
+            var storedVal = storedDetails[i];
+            
+            if ($input.hasClass("radio") || input.hasClass("submit")) {
+                if (input.prop("checked")) {
+                    push(inputVal);
+                }
+            } else {
+
+                if (inputVal !== storedVal) {
+                    storedVal = inputVal;
+                }
+
+            }
+            
+        }
+        
+        return false;
         
     });
 	
