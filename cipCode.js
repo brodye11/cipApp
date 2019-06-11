@@ -219,20 +219,20 @@ $(document).ready(function() {
     
     $("#editDetails").ready(function() {
         
+        //I want to loop through each input, test which storedDetail it corresponds to by looping through each different detailCats then updating the val()
+        
         var $inputEdit = $('#currentDetails input');
         
         for (i=0;i<$inputEdit.length; i++) {
             
             var thiss = $inputEdit.eq(i);
             
-            $inputEdit.each(function() {
+            for(p=0;p<detailCats.length;p++) {
                 
+                if (thiss.data("detail") == detailCats[p]) {
+                    thiss.val(storedDetails[p]);
+                }
                 
-                
-            });
-            
-            if (thiss.data("detail") == detailCats[i]) {
-                thiss.val(storedDetails[i]);   
             }
         }
         
