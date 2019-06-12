@@ -252,6 +252,7 @@ $(document).ready(function() {
         $radios.each(function() {
             if ($(this).prop("checked")) {
                 storedDetails[5] = $(this).val();
+                details[5] = $(this).val();
             }
         });
         
@@ -259,15 +260,28 @@ $(document).ready(function() {
             
             var input = $inputEdit.eq(i);
             var inputVal = $inputEdit.eq(i).val();
-            var storedVal = storedDetails[i];
+            details = storedDetails;
             
             if (!input.hasClass("submit")) {
-                if (inputVal !== storedVal) {
-                    storedDetails[i] = inputVal;
+                // check what input this is by looping through detailCats and seeing which one matches the data-detail property. Then add change that index of storedDetail to be inputVal
+                    
+                for(p=0;p<detailCats.length;p++) {
+                    
+                    if (detailCats[p] == input.data("detail")) {
+                        if (inputVal !== storedDetails[i]) {
+                            console.log(p);
+                            console.log(storedDetails[p]);
+                            storedDetails[p] = inputVal;
+                            details[p] = inputVal;
+                        }
+                    }
                 }
             }
             
         }
+        
+        localStorage.setItem("storedDetails", JSON.stringify(details));
+        storedDetails = JSON.parse(localStorage.getItem("storedDetails"));
         
         console.log(storedDetails);
         
