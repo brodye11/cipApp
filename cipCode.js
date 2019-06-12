@@ -245,13 +245,15 @@ $(document).ready(function() {
         // loop through each input, test whether its val() is the same as current storedDetail for that cat, if it isn't then change the storedDetail for that cat and loadDetails.
         
         e.preventDefault();
-        var details = [];
-    
-        function push(input) {
-            details.push(input);
-        }
         
-        var $inputEdit = $('#currentDetails input');
+        var $inputEdit = $('#currentDetails input').not(".radio");
+        var $radios = $('#currentDetails .radio');
+        
+        $radios.each(function() {
+            if ($(this).prop("checked")) {
+                storedDetails[5] = $(this).val();
+            }
+        });
         
         for(i=0;i<$inputEdit.length;i++) {
             
@@ -259,19 +261,15 @@ $(document).ready(function() {
             var inputVal = $inputEdit.eq(i).val();
             var storedVal = storedDetails[i];
             
-            if ($input.hasClass("radio") || input.hasClass("submit")) {
-                if (input.prop("checked")) {
-                    push(inputVal);
-                }
-            } else {
-
+            if (!input.hasClass("submit")) {
                 if (inputVal !== storedVal) {
-                    storedVal = inputVal;
+                    storedDetails[i] = inputVal;
                 }
-
             }
             
         }
+        
+        console.log(storedDetails);
         
         return false;
         
