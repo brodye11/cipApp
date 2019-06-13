@@ -238,13 +238,9 @@ $(document).ready(function() {
         
     });
 	
-	// When Edit is Clicked ----------------------------------------------------------
-	
-	$("#submitEdit").on("click", function(e) {
-        
-        // loop through each input, test whether its val() is the same as current storedDetail for that cat, if it isn't then change the storedDetail for that cat and loadDetails.
-        
-        e.preventDefault();
+	// When Edit is Clicked 
+    
+    function editLoad() {
         
         var $inputEdit = $('#currentDetails input').not(".radio");
         var $radios = $('#currentDetails .radio');
@@ -284,6 +280,55 @@ $(document).ready(function() {
         storedDetails = JSON.parse(localStorage.getItem("storedDetails"));
         
         console.log(storedDetails);
+        
+    }
+	
+	$("#submitEdit").on("click", function(e) {
+        
+        // loop through each input, test whether its val() is the same as current storedDetail for that cat, if it isn't then change the storedDetail for that cat and loadDetails.
+        
+        e.preventDefault();
+        
+        editLoad();
+        
+        /*var $inputEdit = $('#currentDetails input').not(".radio");
+        var $radios = $('#currentDetails .radio');
+        
+        $radios.each(function() {
+            if ($(this).prop("checked")) {
+                storedDetails[5] = $(this).val();
+                details[5] = $(this).val();
+            }
+        });
+        
+        for(i=0;i<$inputEdit.length;i++) {
+            
+            var input = $inputEdit.eq(i);
+            var inputVal = $inputEdit.eq(i).val();
+            details = storedDetails;
+            
+            if (!input.hasClass("submit")) {
+                // check what input this is by looping through detailCats and seeing which one matches the data-detail property. Then add change that index of storedDetail to be inputVal
+                    
+                for(p=0;p<detailCats.length;p++) {
+                    
+                    if (detailCats[p] == input.data("detail")) {
+                        if (inputVal !== storedDetails[i]) {
+                            console.log(p);
+                            console.log(storedDetails[p]);
+                            storedDetails[p] = inputVal;
+                            details[p] = inputVal;
+                        }
+                    }
+                }
+            }
+            
+        }
+        
+        localStorage.setItem("storedDetails", JSON.stringify(details));
+        storedDetails = JSON.parse(localStorage.getItem("storedDetails"));
+        
+        console.log(storedDetails);*/
         
         return false;
         
