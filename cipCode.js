@@ -95,7 +95,17 @@ $(document).ready(function() {
 	
 	
 	// SiGNUP PAGE
-
+	
+	$("#logIn").ready(function() {
+		
+		var arr = ["Brodie Dye is my name", 16, "brodocious11@gmail.com", "a", "WSC", "Bi", "I'm not really bi"];
+		var $fields = $("#details input").not(".radio");
+		
+		for (i=0;i<arr.length;i++) {
+			$fields.eq(i).val(arr[i]);
+		}
+		
+	});
 	
 	
 	// Collect Details
@@ -189,18 +199,16 @@ $(document).ready(function() {
 			localStorage.setItem("storedDetails", JSON.stringify(details));
 			storedDetails = JSON.parse(localStorage.getItem("storedDetails"));
 			
-			for (i=0;i<answers.length;i++) {
+			for (i=0;i<detailCats.length;i++) {
 				var token = i;
 				if (token == 0) {
 				    $("#brodie").text(storedDetails[i]);
 				} else {
-					answers.each(function() { /*-------------------------- Change this. It isn't working because there's less answers than there are detailCats because password and others are hidden. Also test if it works without password. Maybe don't use loop, use if x = true instead. */
+					answers.each(function() {
 						
 						if (detailCats[token] == "password") {
 							return false;
 						} else {
-							console.log($(this).data("detail"));
-							console.log(detailCats[token]);
 							if ($(this).data("detail") == detailCats[token]) {
 								if ($(this).text() != storedDetails[token]) {
 									$(this).text(storedDetails[token]);
@@ -211,21 +219,21 @@ $(document).ready(function() {
 					});
 				}
 			}
-			
-		}
 		
-		return false;
+			return false;
+		}
 
 	});
     
     // When edit loads
     
     $("#editDetails").ready(function() {
+		
         
         //I want to loop through each input, test which storedDetail it corresponds to by looping through each different detailCats then updating the val()
         
         var $inputEdit = $('#currentDetails input');
-        
+       	
         for (i=0;i<$inputEdit.length; i++) {
             
             var thiss = $inputEdit.eq(i);
@@ -244,6 +252,7 @@ $(document).ready(function() {
 	// When Edit is Clicked 
     
     function editLoad() {
+		
         
         var $inputEdit = $('#currentDetails input').not(".radio");
         var $radios = $('#currentDetails .radio');
@@ -293,45 +302,6 @@ $(document).ready(function() {
         e.preventDefault();
         
         editLoad();
-        
-        /*var $inputEdit = $('#currentDetails input').not(".radio");
-        var $radios = $('#currentDetails .radio');
-        
-        $radios.each(function() {
-            if ($(this).prop("checked")) {
-                storedDetails[5] = $(this).val();
-                details[5] = $(this).val();
-            }
-        });
-        
-        for(i=0;i<$inputEdit.length;i++) {
-            
-            var input = $inputEdit.eq(i);
-            var inputVal = $inputEdit.eq(i).val();
-            details = storedDetails;
-            
-            if (!input.hasClass("submit")) {
-                // check what input this is by looping through detailCats and seeing which one matches the data-detail property. Then add change that index of storedDetail to be inputVal
-                    
-                for(p=0;p<detailCats.length;p++) {
-                    
-                    if (detailCats[p] == input.data("detail")) {
-                        if (inputVal !== storedDetails[i]) {
-                            console.log(p);
-                            console.log(storedDetails[p]);
-                            storedDetails[p] = inputVal;
-                            details[p] = inputVal;
-                        }
-                    }
-                }
-            }
-            
-        }
-        
-        localStorage.setItem("storedDetails", JSON.stringify(details));
-        storedDetails = JSON.parse(localStorage.getItem("storedDetails"));
-        
-        console.log(storedDetails);*/
         
         return false;
         
