@@ -12,6 +12,9 @@ $(document).ready(function() {
     var bio = "bio";
 
     var detailCats = [name, age, email, password, school, gender, sexuality, bio];
+	
+	console.log(storedDetails);
+	console.log(detailCats);
     
 	// ON LOAD
 	
@@ -128,8 +131,6 @@ $(document).ready(function() {
 			
 			
 			// errorMsg
-		
-			
 			
 			var errorMsg = $(this).attr("name") + " field is required";
 			var $firstError = missingMsg.first();
@@ -193,11 +194,13 @@ $(document).ready(function() {
 				if (token == 0) {
 				    $("#brodie").text(storedDetails[i]);
 				} else {
-					answers.each(function() {
+					answers.each(function() { /*-------------------------- Change this. It isn't working because there's less answers than there are detailCats because password and others are hidden. Also test if it works without password. Maybe don't use loop, use if x = true instead. */
 						
 						if (detailCats[token] == "password") {
 							return false;
 						} else {
+							console.log($(this).data("detail"));
+							console.log(detailCats[token]);
 							if ($(this).data("detail") == detailCats[token]) {
 								if ($(this).text() != storedDetails[token]) {
 									$(this).text(storedDetails[token]);
