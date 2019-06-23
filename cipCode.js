@@ -1,5 +1,7 @@
 $(document).ready(function() {
 	
+	var genderIndex;
+	
 	var storedDetails = JSON.parse(localStorage.getItem("storedDetails"));
 	
 	var name = "name";
@@ -107,6 +109,33 @@ $(document).ready(function() {
 		
 	});
 	
+	function instantLoad() {
+		
+		var answers = $("#detailDiv #answer");
+
+		for (i=0;i<detailCats.length;i++) {
+			var token = i;
+			if (token == 0) {
+				$("#brodie").text(storedDetails[i]);
+			} else {
+				answers.each(function() {
+
+					if (detailCats[token] == "password") {
+						return false;
+					} else {
+						if ($(this).data("detail") == detailCats[token]) {
+							if ($(this).text() != storedDetails[token]) {
+								$(this).text(storedDetails[token]);
+							}
+							return false;
+						}
+					}
+				});
+			}
+		}
+		
+	}
+	
 	
 	// Collect Details
 	
@@ -171,6 +200,7 @@ $(document).ready(function() {
 				if (input.hasClass("radio") || input.hasClass("submit")) {
 					if (input.prop("checked")) {
 						push(inputVal);
+						genderIndex = inputVal;
 					}
 				} else {
 					push(inputVal);
@@ -253,16 +283,8 @@ $(document).ready(function() {
     
     function editLoad() {
 		
-        
         var $inputEdit = $('#currentDetails input').not(".radio");
         var $radios = $('#currentDetails .radio');
-        
-        $radios.each(function() {
-            if ($(this).prop("checked")) {
-                storedDetails[5] = $(this).val();
-                details[5] = $(this).val();
-            }
-        });
         
         for(i=0;i<$inputEdit.length;i++) {
             
@@ -272,14 +294,11 @@ $(document).ready(function() {
             
             if (!input.hasClass("submit")) {
                 // check what input this is by looping through detailCats and seeing which one matches the data-detail property. Then add change that index of storedDetail to be inputVal
-                    
+                
                 for(p=0;p<detailCats.length;p++) {
                     
                     if (detailCats[p] == input.data("detail")) {
                         if (inputVal !== storedDetails[i]) {
-                            console.log(p);
-                            console.log(storedDetails[p]);
-                            storedDetails[p] = inputVal;
                             details[p] = inputVal;
                         }
                     }
@@ -287,11 +306,24 @@ $(document).ready(function() {
             }
             
         }
-        
+		
+		console.log(genderIndex);
+		console.log(storedDetails);
+		
+		$radios.each(function() {
+            if ($(this).prop("checked")) {
+				var index = storedDetails.indexOf(genderIndex);
+                details[index] = $(this).val();
+				genderIndex = $(this).val();
+            }
+        });
+		
+		localStorage.clear();
         localStorage.setItem("storedDetails", JSON.stringify(details));
         storedDetails = JSON.parse(localStorage.getItem("storedDetails"));
-        
-        console.log(storedDetails);
+		
+		console.log(details);
+		console.log(storedDetails);
         
     }
 	
@@ -302,6 +334,8 @@ $(document).ready(function() {
         e.preventDefault();
         
         editLoad();
+		
+		instantLoad();
         
         return false;
         
