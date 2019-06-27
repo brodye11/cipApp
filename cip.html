@@ -39,10 +39,10 @@
 						</div>
 					</ul>
 				</div>
-
+				
 				<h2>Matches: </h2>
 				<div class = "huge">1</div>
-				<div id = "findOut" class="button gold findOut toggleRevealCrush">Find out who!</div>
+				<div data-show = "revealCrush" class="button gold findOut toggleRevealCrush popUpTrigger">Find out who!</div>
 			</div>
 			
 			<div class = "popUp none" id = "popUp">
@@ -55,7 +55,7 @@
 			
 			<div class = "revealCrush none" id = "revealCrush">
 				<div class = "name">Brodie Reciprocates!</div>
-				<div class = "button toggleRevealCrush x">X</div>
+				<div class = "button toggleRevealCrush x" id = "x">X</div>
 			</div>
 			
 		</div>
@@ -76,8 +76,10 @@
 			<div class="app-content search">
 				
 				<div class="searchHeader">
-					<img class = "searchLogo" src = "images/searchLogo.png">
-					<div class = "searchTitle">Search For Your Crush Here: </div>
+					<div class = "alignHor searchDiv">
+						<div class = "searchTitle">Search For Your Crush Here: </div>
+						<img class = "searchLogo" src = "images/searchLogo.png">
+					</div>
 					<textarea class = "searchArea" type = "search" placeholder = "Search for your crush" id = search></textarea>
 				</div>
 
@@ -101,8 +103,21 @@
 						</div>
 
 					</div>
+					
+					<div class = "addPerson none" id = "addPerson">
+						<div class = "x" id = "x">X</div>
+						<div class = "who">Who's your crush?</div>
+						<form id = "addPersonForm" action = "cipScript_email.php" method = "post">
+							<label for = "name">What's their name?</label>
+							<input name = "name" type = "text">
+							<label for = "email">What's their email?</label>
+							<input name = "email" type = "text">
+							<input class = "submitAddPerson" type = "submit" value = "Send and add">
+						</form>
+						<div class = "smallInfo">*The above person, will be told that they have an anonymous crush (you). As usual, they won't be able to see who it is that likes them, unless they create an account and like you back. Good luck!</div>
+					</div>
 
-					<div class="button blue lookingFor">Couldn't find who you were looking for?</div>
+					<div class="button blue lookingFor popUpTrigger" data-show = "addPerson">Couldn't find who you were looking for?</div>
 
 				</div>
 		  

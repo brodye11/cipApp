@@ -3,6 +3,12 @@
 	padding: 0px;
 }
 
+.alignHor {
+	display: flex;
+	flex-wrap: nowrap;
+	flex-direction: row;.
+}
+
 .page>* {
 	padding:0px;
 }
@@ -62,7 +68,7 @@
 	text-align: center;
 }
 
-.popUp, .revealCrush {
+.popUp, .revealCrush, .addPerson {
 	width: 80%;
 	min-height: 150px;
 	background-color: #ccb174;
@@ -242,6 +248,10 @@ h2 {
 	margin: 0px auto;
 }
 
+.searchDiv {
+	padding-top: 20px;
+}
+
 .searchHeader {
 	width: 100vw;
 	min-height: 170px;
@@ -254,17 +264,18 @@ h2 {
 }
 
 .searchLogo {
-    padding: 7px;
+    padding: 0px;
 	width: 50px;
 	height: 50px;
 }
 
 .searchTitle {
-    padding: 0px 0px 20px 0px;
-	font-size: 23px;
+    padding: 10px;
+	font-size: 20px;
 	color: white;
 	text-align: center;
 	padding-top: 10px;
+	max-width: 60%;
 }
 
 .searchArea {
@@ -309,6 +320,29 @@ h2 {
 	padding: 10px;
 }
 
+.who {
+	color: white;
+	font-size: 1.4em;
+	padding: 35px 0px;
+}
+
+.addPerson>* {
+	padding: 5px 25px;
+	color: white;
+}
+
+.addPerson>input {
+	padding-bottom: 15px;
+}
+
+.smallInfo {
+	font-size: 0.9em;
+}
+
+.submitAddPerson {
+	font-size: 0.8em;
+}
+
 /* Profile */
 
 #profilePage {
@@ -328,7 +362,7 @@ h2 {
 
 .name {
 	font-size: 35px;
-	color: black;
+	color: white;
 	padding: 60px 50px 60px 50px;
 }
 

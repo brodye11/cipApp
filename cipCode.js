@@ -88,13 +88,22 @@ $(document).ready(function() {
 	
 	
 	
-	// find out who
+	// popUps --------------------------------------------------------------------------------
 	
-	$(".toggleRevealCrush").on("click", function(){
+	/*$(".toggleRevealCrush").on("click", function(){
 		$("#revealCrush").toggleClass("none");
+	});*/
+	
+	
+	
+	$(".popUpTrigger").on("click", function() {
+		var a = $(this).data("show");
+		$("#" + a).toggleClass("none");
 	});
 	
-	
+	$(".x").on("click", function() {
+		$(this).parent().toggleClass("none");
+	});
 	
 	// SiGNUP PAGE
 	
@@ -313,7 +322,7 @@ $(document).ready(function() {
 		$radios.each(function() {
             if ($(this).prop("checked")) {
 				var index = storedDetails.indexOf(genderIndex);
-                details[index] = $(this).val();
+                details[5] = $(this).val(); /* If gender not working, it may be because of this */
 				genderIndex = $(this).val();
             }
         });
