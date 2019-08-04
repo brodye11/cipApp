@@ -107,17 +107,6 @@ $(document).ready(function() {
 	
 	// SiGNUP PAGE
 	
-	$("#logIn").ready(function() {
-		
-		var arr = ["Brodie Dye is my name", 16, "brodocious11@gmail.com", "a", "WSC", "Bi", "I'm not really bi"];
-		var $fields = $("#details input").not(".radio");
-		
-		for (i=0;i<arr.length;i++) {
-			$fields.eq(i).val(arr[i]);
-		}
-		
-	});
-	
 	function instantLoad() {
 		
 		var answers = $("#detailDiv #answer");
