@@ -11,7 +11,7 @@ error_reporting(E_ALL);
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Register.php</title>
+	<title>Register.php</title>
   <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>

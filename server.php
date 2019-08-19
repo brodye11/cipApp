@@ -102,7 +102,7 @@ if($db = mysqli_connect('64.20.45.186', 'cipappwe_brodie', 'Doublerainbow11', 'c
 
 		if(count($errors) == 0) {
 
-			md5($password);
+			$password = md5($password);
 
 			$query = "SELECT * FROM users WHERE email = '$email' AND password = '$password'";
 			$result = mysqli_query($db, $query);
@@ -114,7 +114,7 @@ if($db = mysqli_connect('64.20.45.186', 'cipappwe_brodie', 'Doublerainbow11', 'c
 				$_SESSION['email'] = $email;
 				$_SESSION['success'] = "You're now logged in:)";
 
-				//header("location: cipapp.website/index.php");
+				header('location: index.php');
 
 			} else {
 				array_push($errors, "Wrong email/password combination");
