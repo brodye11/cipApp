@@ -40,6 +40,7 @@
 .button>a {
 	display: block;
 	text-decoration: none;
+	text-decoration-style: none;
 	color: white;
 	font-weight: normal;
 	text-align: center;
@@ -368,6 +369,13 @@ h2 {
 
 editLink .editSymbol {
 	display: block;
+}
+
+.logout {
+		position: absolute;
+		right: 30px;
+	top:80px;
+	width:50px;
 }
 
 .app-section {

@@ -72,7 +72,7 @@ if($db = mysqli_connect('64.20.45.186', 'cipappwe_brodie', 'Doublerainbow11', 'c
 			
 			$_SESSION['email'] = $email;
 			$_SESSION['success'] = "You're now logged in";
-			header('location: index.php');
+			header('location: index.php#logIn');
 			
 		}
 

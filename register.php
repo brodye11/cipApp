@@ -6,13 +6,11 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 ?>
 
-<?php header('location:index.php'); ?>
-
 <!DOCTYPE html>
 <html>
 <head>
 	<title>Register.php</title>
-  <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="stylesheet" type="text/css" href="userStyle.css">
 </head>
 <body>
   <div class="header">
