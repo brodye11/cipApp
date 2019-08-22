@@ -65,6 +65,7 @@ if($db = mysqli_connect('64.20.45.186', 'cipappwe_brodie', 'Doublerainbow11', 'c
 				//add desired sessions
 
 			$password = md5($password);
+			$hash = md5(rand(0,1000));
 
 			$query = "INSERT INTO users (name, email, password)
 				  VALUES('$name', '$email', '$password')";

@@ -13,8 +13,10 @@ error_reporting(E_ALL);
 		<link rel="stylesheet" href="themes/flat.css" />
 		<link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
 		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.css" />
+<!--
 		<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
 		<script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
+-->
 	  <link rel="stylesheet" type="text/css" href="userStyle.css">
 	</head>
 	<body>
@@ -27,21 +29,14 @@ error_reporting(E_ALL);
 
 				<form method="post" action = "register.php">
 					<?php include("errors.php") ?>
-				<div class="input-group">
-					<label>Email</label>
-					<input type="email" name="email">
-				</div>
-				<div class="input-group">
-					<label>Password</label>
-					<input data-icon = "lock" type="password" name="password">
-				</div>
-				<div class="input-group">
+					<input type="email" name="email" placeholder = "Email">
+					<input data-icon = "lock" type="password" name="password" placeholder = "Password">
 					<button type="submit" class="btn" name="login">Register</button>
-				</div>
-				<p>
-					Don't have an account? <a href="register.php">Sign Up</a>
-				</p>
 				</form>
+				<div class = "switch">
+					<p>
+					Don't have an account?</p><div class = "button blue"><a href="register.php">Sign Up</a></div>
+				</div>
 		
 		
 		</div>
