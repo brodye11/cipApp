@@ -14,11 +14,13 @@ if($db = mysqli_connect('64.20.45.186', 'cipappwe_brodie', 'Doublerainbow11', 'c
 		$email = mysqli_real_escape_string($db, $_POST['email']);
 		$password = mysqli_real_escape_string($db, $_POST['password']);
 		$errors = array();
+		$msgs = array();
 
 		// make appropriate checks eg. is password entered, does email contain @. If not append
 		
 		if (empty($name)) {
 			array_push($errors, "Name can't be empty");
+			array_push($msgs, "Please verifiy your email  in order to log in");
 		}
 		
 		if (empty($email)) {
@@ -67,13 +69,20 @@ if($db = mysqli_connect('64.20.45.186', 'cipappwe_brodie', 'Doublerainbow11', 'c
 			$password = md5($password);
 			$hash = md5(rand(0,1000));
 
-			$query = "INSERT INTO users (name, email, password)
-				  VALUES('$name', '$email', '$password')";
+			$query = "INSERT INTO users (name, email, password, hash)
+				  VALUES('$name', '$email', '$password', '$hash')";
 			mysqli_query($db, $query);
+//			remember to get rid of these once you finish verification
+			array_push($msgs, "A confirmation email has been sent to your inbox. Please click the link provided to verify your account.");
 			
-			$_SESSION['email'] = $email;
-			$_SESSION['success'] = "You're now logged in";
-			header('location: index.php#logIn');
+			$to = $email;
+			$subject = "Cip: Confirmation Email";
+			$msg = "Thanks for signing up to Cip ".$name.".
+			Please confirm your email by clicking the link below:
+			http://cipapp.website/verify.php?email=$email&hash=$hash
+			";
+			$headers = 'From:noreply@cipapp.website' . "\r\n";
+			mail($to, $subject, $msg, $headers);
 			
 		}
 

@@ -41,6 +41,8 @@ error_reporting(E_ALL);
 			<div class="input-group">
 				<button type="submit" class="btn" name="reg_user">Register</button>
 			</div>
+			<?php include("msgs.php") ?> 
+			
 			<p>
 				Already a member?</p><div class = "button blue"><a href="login.php">Log in</a></div>
 		</form>

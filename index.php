@@ -7,7 +7,6 @@ if (!isset($_SESSION['email'])) {
 }
 
 if (isset($_GET['logout'])) {
-	header('location: register.php');
 	unset($_SESSION['email']);
 	header('location: login.php');
 }

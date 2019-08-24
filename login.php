@@ -32,12 +32,12 @@ error_reporting(E_ALL);
 					<input type="email" name="email" placeholder = "Email">
 					<input data-icon = "lock" type="password" name="password" placeholder = "Password">
 					<button type="submit" class="btn" name="login">Register</button>
+					<?php include("msgs.php") ?> 
 				</form>
 				<div class = "switch">
 					<p>
 					Don't have an account?</p><div class = "button blue"><a href="register.php">Sign Up</a></div>
 				</div>
-		
 		
 		</div>
 	</body>
