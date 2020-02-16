@@ -1,0 +1,455 @@
+* {
+	margin: 0px;
+	padding: 0px;
+}
+
+.alignHor {
+	display: flex;
+	flex-wrap: nowrap;
+	flex-direction: row;.
+}
+
+.page>* {
+	padding:0px;
+}
+
+.ui-content>* {
+	margin: 0px auto;
+}
+
+.none {
+	display: none;
+}
+
+.button {
+	color: white;
+	display: block;
+	border-radius: 10px;
+	padding: 15px;
+	width: 150px;
+	margin: 0px auto;
+	text-align: center;
+}
+
+.button>a {
+	display: block;
+	text-decoration-style: none;
+	color: white;
+}
+
+.button>a {
+	display: block;
+	text-decoration: none;
+	text-decoration-style: none;
+	color: white;
+	font-weight: normal;
+	text-align: center;
+}
+
+.button:hover {
+	background-color: rosybrown;
+}
+
+.blue {
+	background-color: #21BDCE;
+}
+
+.red {
+	background-color: #FF5733;
+}
+
+.gold {
+	background-color: #f2d03c;
+}
+
+.popUpQuery {
+	color: white;
+	font-size: 20px;
+	padding: 30px;
+	text-align: center;
+}
+
+.popUp, .revealCrush, .addPerson {
+	width: 80%;
+	min-height: 150px;
+	background-color: #ccb174;
+	position: absolute;
+	top: 150px;
+	left: 10%;
+    box-shadow: 10px 10px 5px grey;
+    border-style: groove;
+    border-color: black;
+    border-width: 2px;
+}
+
+.queryOptions {
+	display: flex;
+	flex-wrap: nowrap;
+}
+
+.name {
+	color: white;
+	font-size: 30px;
+}
+
+.x {
+	right: 0px;
+	position: absolute;
+	top: 0px;
+	width: 10px;
+	height: 10px;
+}
+
+x:hover {
+	background-color: red;
+}
+
+y, n {
+	width: 30%;
+    color: black;
+}
+
+/* Home */
+
+.main {
+	margin: 0px;
+	width: 100vw;
+}
+
+.header {
+	margin: 0px;
+	padding: 0px;
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+	color: red;
+	width: 100vw;
+	min-height: 150px;
+	background-image: url("images/header.jpg");
+	background-size: 100vw auto;
+	background-position: bottom center;
+}
+
+.newCrush{
+	background-color: #3ac8d8;
+	margin: 0px auto;
+}
+
+#home {
+	background-color: #3ae5f2;
+}
+
+#home>* {
+	padding: 0px;
+}
+
+.title {
+	padding: 15px 0px;
+	color: black;
+	font-size: 45px;
+}
+
+.toggleCrushList {
+	padding-top: 30px;
+	position: relative;
+}
+
+.content {
+	display: flex;
+	flex-flow: column;
+	align-items: center;
+}
+	
+.content>div {
+	margin: 0px auto;
+}
+
+.crushList {
+	padding: 0px;
+	margin: 0px;
+	position: absolute;
+	left: 0;
+	top: 75px;
+	width: 245px;
+}
+
+.crushList>div {
+	padding: 10px;
+	background: gold;
+	width: 100%;
+	height: 100%;
+	font-size 25px;
+	font-weight: bolder;
+	display: flex;
+	flex-flow: row nowrap;
+}
+
+.crushList>div>p {
+	max-width: 80%;
+}
+
+.removeCrush {
+	border-radius: 5px;
+	padding: 5px;
+	background-color: red;
+	color: white;
+	display: block;
+	max-width: 20px;
+	max-height: 20px;
+	float: left;
+  	right: 0%;
+	position: absolute;
+}
+
+.removeCrush:hover {
+	background-color: rosybrown;
+}
+
+.matches {
+	display: flex;
+	flex-wrap: nowrap;
+	justify-content: space-around;
+}
+
+h2 {
+	color: orangered;
+	font-size: 29px;
+	padding-top: 140px;
+}
+
+.huge {
+	font-size: 120px;
+	color: red;
+}
+
+.findOut {
+	width: 50%;
+	background-color: #f2d03c;
+	padding: 20px 15px;
+	text-align: center;
+	color: white;
+	font-size: 20px;
+	border-radius: 15px;
+	display: block;
+}
+
+/* Search bar */
+
+.search {
+	background: -moz-linear-gradient(-45deg, #ff3232 17%, #f93181 49%, #fcde00 89%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(-45deg, #ff3232 17%,#f93181 49%,#fcde00 89%);
+}
+
+.search>* {
+	margin: 0px auto;
+}
+
+.searchAres{
+	width: 90vw;
+	margin: 0px auto;
+}
+
+.searchDiv {
+	padding-top: 20px;
+}
+
+.searchHeader {
+	width: 100vw;
+	min-height: 170px;
+	background-color: #c62915;
+	display: flex;
+	align-items: center;
+	flex-flow: column;
+	max-height: 40%;
+	position: relative;
+}
+
+.searchLogo {
+    padding: 0px;
+	width: 50px;
+	height: 50px;
+}
+
+.searchTitle {
+    padding: 10px;
+	font-size: 20px;
+	color: white;
+	text-align: center;
+	padding-top: 10px;
+	max-width: 60%;
+}
+
+.searchArea {
+    min-width: 100%;
+    max-height: 40px;
+	position: absolute;
+	bottom: 0;
+}
+
+.searchResults {
+    width: 80vw;
+    display: flex;
+    flex-flow: column;
+    align-content: center;
+}
+
+.users {
+    margin-top: 50px;
+}
+
+.user {
+    background-color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 20px;
+}
+
+.userName {
+    font-size: 15px;
+    padding: 7px 7px 0px 7px;
+}
+
+.bio {
+    font-size: 12px;
+    padding: 7px;
+}
+
+.app-input {
+	margin: 0px auto;
+}
+
+.lookingFor {
+    margin-top: 20px;
+	padding: 10px;
+}
+
+.who {
+	color: white;
+	font-size: 1.4em;
+	padding: 35px 0px;
+}
+
+.addPerson>* {
+	padding: 5px 25px;
+	color: white;
+}
+
+.addPerson>input {
+	padding-bottom: 15px;
+}
+
+.smallInfo {
+	font-size: 0.9em;
+}
+
+.submitAddPerson {
+	font-size: 0.8em;
+}
+
+/* Profile */
+
+#profilePage {
+	background: linear-gradient(135deg, #00ffff 2%,#6b97ff 50%,#ed0096 99%);
+}
+
+.profileHeader {
+    width: 100vw;
+    min-height: 150px;
+    display: flex;
+    flex-flow: row;
+    flex-wrap: nowrap;
+    flex-flow: row;
+    align-content: center;
+    justify-content: center;
+}
+
+.name {
+	font-size: 35px;
+	color: white;
+	padding: 60px 50px 60px 50px;
+}
+
+editLink .editSymbol {
+	display: block;
+}
+
+.logout {
+		position: absolute;
+		right: 30px;
+	top:80px;
+	width:50px;
+}
+
+.app-section {
+	max-width: 100%;
+	margin: 0px auto;
+	background-color: rgba(255, 255, 255, 0.5);
+	width: 80vw;
+	display: flex;
+	flex-flow: column;
+	align-items: center;
+}
+
+.something {
+	width: 200px;
+}
+
+.something>* {
+	padding: 5px;
+}
+
+.profileHeaders {
+    font-weight: bold;
+}
+
+.signUp {
+	margin-top: 30px;
+}
+
+/* Sign up */
+
+.logInHere {
+	padding: 10px 0px;
+}
+
+.logInContent {
+	background-color: white;
+}
+
+.logInContent {
+	background: white;
+}
+
+.logInHere {
+	font-size: 40px;
+	font-weight: normal;
+	padding: 30px 0px;
+	text-align: center;
+}
+
+.alert {
+	padding: 20px;
+	background-color: red;
+	margin-bottom: 20px;
+}
+
+.errorList {
+	color: white;
+}
+
+.form {
+	width: 80vw;
+	background-color: white;
+}
+
+.submit {
+	position: absolute;
+	bottom: 0;
+}
+
+label {
+	font-size: 50px;
+}
+
+.none {
+	display: none;
+}
+
