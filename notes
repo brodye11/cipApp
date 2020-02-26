@@ -1,0 +1,29 @@
+SQL NOTES
+
+- mysqli_fetch_row() lests you get all rows of data in an array (useful when there's no WHERE in your sql SELECT query)
+- mysqli_fetch_assoc() lets you get all the data within those rows
+- mysqli_fetch_array() is a combinations of both of those
+- $query = "SELECT COUNT(*) FROM users" will return the number of rows (users in this case) when mysqli_fetch_row() is called on the result
+-prepared statements
+ $statement = $mysqli->prepare($query);
+ $statement->bind_param('is', $search_ID, $search_product);
+ $statement->execute();
+ $statement->bind_result($id, $product_code, $product_desc, $price); can be re-use query multiple times
+- can use ON DUPLICATE KEY to update instead of insert if row already exists
+- $query = "INSERT INTO Users (a,b,c,d) VALUES (?,?,?,?) ON DUPLICATE KEY UPDATE a = ?,b = ?, c = ?, d = ?);
+  mysqli_prepare($query);
+  mysqli_bind_param('ssss', $a, $b, $c, $d);
+  mysqli_excecute();
+- intval() converts to integer
+- INSERT IGNORE INTO will ensure that no duplicates get inserted
+- explode ("h e l l o", " ", array) will split hello into individual letters and put into provided assosiative array
+- a relational database is a table which connects two different tables. The table contains an 2 or more ids, one from each table, and connects them that way. A way to do this is using $some_id = $mysqli->insert_id; which will mean that some_id stores the last id (even if it was auto-incremented) that was created in a query. $some_other_id = $mysqli->insert_id; then insert both ids into relational table
+
+
+
+
+RELATIONAL DB GONNA WORK BY
+
+- What crusher code has: name of crushee
+- It will query to find crushee in crushes column and test if their crush is your email
+- If so it will confirm match
